@@ -26,7 +26,7 @@ function TabPanel(props: TabPanelProps) {
         aria-labelledby={`action-tab-${index}`}
         {...other}
 
-        sx={{background:"#00FFFF",height: "90vh",width:"100%",padding: "20px"}}
+        sx={{background:"#00FFFF",height: "90vh",width:"100%"}}
       >
         {value === index && <Box sx={{ p: 3 }}>{children}</Box>}
       </Typography>
@@ -75,7 +75,7 @@ export const Banner =()=>{
                             <Typography sx={{marginBottom:'30px',fontSize:{md:'20px', xs: '15px'}}}>
                                 In this season, find the best 🔥
                             </Typography>
-                            <Typography sx={{marginBottom:'30px',fontSize: {xs:'25px',md: "3rem"}}} variant="h2">
+                            <Typography sx={{marginBottom:'30px',fontSize: {xs:'25px',md: "3.75rem"}}} variant="h2">
                                 Exclusive collection for everyone
                             </Typography>
                             <Button

@@ -1,10 +1,14 @@
-import { Grid ,Container, Typography,Card, Box, Button} from '@mui/material'
+import { Grid ,Container, Typography,Card, Box, Button, RadioGroup, FormControlLabel, Radio} from '@mui/material'
 import { Navbar } from '../components/Nabar'
 import { Banner } from '../components/Banner'
+import {useState}from 'react';
 import { Image } from '../assets'
-
+import { ProductData } from '../data'
+import {ProductItem} from '../components/ProductItem';
 
 export default function Home() {
+
+
   return (
     <Grid>
         <Navbar/>
@@ -108,7 +112,26 @@ export default function Home() {
                 </Grid>
             </Grid>
           </Grid>
-         
+
+          <Grid sx={{margin:"30px 0"}}>
+            <Typography variant='h4' sx={{
+                fontFamily: 600,
+                '& span':{
+                  color: "#ccc"
+                }
+              }}> 
+                  New Arrivals. <span>Rey  Backpacks & Bags </span>
+              </Typography>
+
+              <Grid sx={{margin: "20px 0"}}>
+                <Grid container  spacing={2}>
+                    {ProductData.map((data,index)=> (
+                        <ProductItem data={data} key={index}/>
+                    ))}
+                    
+                </Grid>
+              </Grid>
+          </Grid>
         </Container>
     </Grid>
   )

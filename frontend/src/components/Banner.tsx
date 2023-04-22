@@ -25,7 +25,6 @@ function TabPanel(props: TabPanelProps) {
         id={`action-tabpanel-${index}`}
         aria-labelledby={`action-tab-${index}`}
         {...other}
-
         sx={{background:"#00FFFF",height: "90vh",width:"100%"}}
       >
         {value === index && <Box sx={{ p: 3 }}>{children}</Box>}

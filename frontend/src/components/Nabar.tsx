@@ -135,11 +135,9 @@ export const Navbar =()=>{
                         ))}
                     </Box>
                     <Box sx={{ flexGrow: 0 }}>
-                        <IconButton aria-label="cart" sx={{mx: 1}}>
-                            <StyledBadge badgeContent={4} color="secondary">
-                                <ShoppingCartIcon />
-                            </StyledBadge>
-                        </IconButton>
+                        <Badge badgeContent={4} sx={{margin: "0  15px"}} color="success">
+                            <ShoppingCartIcon color="action" />
+                        </Badge>
                         <Tooltip title="Open settings">
                             <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
                                 <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />

@@ -90,8 +90,6 @@ export const Navbar =()=>{
                             sx={{
                                 display:{xs:'block',md: 'none'}
                             }}
-
-
                         >
                             {
                                 pages.map((page)=>(

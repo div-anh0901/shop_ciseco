@@ -1,10 +1,11 @@
-import { Box, Chip, Grid, Tooltip } from '@mui/material'
+import { Box, Chip, Grid, Tooltip, Typography } from '@mui/material'
 import React, { useState ,FC} from 'react'
 import FavoriteBorderOutlinedIcon from '@mui/icons-material/FavoriteBorderOutlined';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import { ProductType } from '../utils/type';
 import { ProductTypeChoose } from './ProductType';
 import { BoxProItem, ChipButton } from '../custom-tag/productItem/BoxProItem';
+import StarIcon from '@mui/icons-material/Star';
 type Props={
     data: ProductType
 }
@@ -33,8 +34,37 @@ export const  ProductItem: FC<Props>= ({data}) => {
                 </Box>
             </Box>
         </BoxProItem>
-       
-        <ProductTypeChoose datas={data.type}/>
+        <Box sx={{
+          margin:'10px 0'
+        }}>
+          <ProductTypeChoose datas={data.type}/>
+        </Box>
+        
+        <Box sx={{
+          margin:'10px 0'
+        }}>
+          <Typography  sx={{
+            margin:'10px 0',
+            fontWeight: 500,
+            fontSize:'20px'
+          }}>
+              {data.name}
+          </Typography>
+          <Typography sx={{
+              margin:'10px 0',
+            color:'#615151'
+          }}>
+              {data.des}
+          </Typography>
+          <Box sx={{display:'flex', alignItems:'center',justifyContent:'space-between'}}>
+            <Typography>
+                {data.price}$
+            </Typography>
+            <Typography sx={{display:'flex', alignItems:'center'}}>
+              <StarIcon sx={{color:'yellow'}}/> {data.rating} 
+            </Typography>
+          </Box>
+        </Box>
       </Box>
   </Grid>
   )

@@ -5,25 +5,28 @@ type Props ={
 }
 
 export const  ProductTypeChoose:FC<Props>=({datas})=> {
+
     const [typeP,setTypeP] = useState(false);
     const [typePindex,setTypeIndex] = useState(0)
     const  handleClick =(index: number)=>{
-      if(typeP == true && typePindex !== index){
+      if(typeP === true && typePindex !== index){
         setTypeP(true)
       }
       setTypeIndex(index);
-      if(typeP == false && typePindex === index){
+      if(typeP === false && typePindex === index){
         setTypeP(true)
       }
     }
   return (
     <Box  sx={{
       display:'flex',
+     
     }}>
       {datas.map((data,index)=>(
          <Box key={index}  sx={{
           width:'25px',
           height:'25px',
+        
           display:'flex',
           cursor:'pointer',
           alignItems:'center',

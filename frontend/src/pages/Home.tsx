@@ -124,7 +124,7 @@ export default function Home() {
               </Typography>
 
               <Grid sx={{margin: "20px 0"}}>
-                <Grid container  spacing={2}>
+                <Grid container  spacing={5}>
                     {ProductData.map((data,index)=> (
                         <ProductItem data={data} key={index}/>
                     ))}

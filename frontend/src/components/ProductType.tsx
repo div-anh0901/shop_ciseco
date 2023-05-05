@@ -7,7 +7,8 @@ type Props ={
 export const  ProductTypeChoose:FC<Props>=({datas})=> {
 
     const [typeP,setTypeP] = useState(false);
-    const [typePindex,setTypeIndex] = useState(0)
+    const [typePindex,setTypeIndex] = useState(0);
+    
     const  handleClick =(index: number)=>{
       if(typeP === true && typePindex !== index){
         setTypeP(true)

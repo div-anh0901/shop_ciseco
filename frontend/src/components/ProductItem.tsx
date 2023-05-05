@@ -1,25 +1,38 @@
-import { Box, Chip, Grid, Tooltip, Typography } from '@mui/material'
-import React, { useState ,FC} from 'react'
+import { Box, 
+    Grid,
+    Typography,
+    Dialog,
+    Stack,
+    Chip
+  } from '@mui/material'
+import React, { useState ,FC,useEffect} from 'react'
 import FavoriteBorderOutlinedIcon from '@mui/icons-material/FavoriteBorderOutlined';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import { ProductType } from '../utils/type';
 import { ProductTypeChoose } from './ProductType';
 import { BoxProItem, ChipButton } from '../custom-tag/productItem/BoxProItem';
 import StarIcon from '@mui/icons-material/Star';
+import { Image, ImageColor } from "../assets";
 type Props={
     data: ProductType
 }
 export const  ProductItem: FC<Props>= ({data}) => {
-
   const [like,setLike] = useState(false);
+  const [open,setOpen] = useState(false);
+  const [selectedValue,setSelectedValue] = useState("hoanganhdeptrai");
   const  handleClick =()=>{
-}
+    setOpen(true)
+  }
+  const handleClose =(value: string)=>{
+    setOpen(false);
+    setSelectedValue(value);
+  }
 //rgb(15,23,42)
   return (
     <Grid item md={3} >
       <Box >
           <BoxProItem>
-            <img src={data.image} alt={data.image} onClick={handleClick}  />
+            <img src={data.image} alt={data.image}  />
             <Box  onClick={()=>setLike(!like)} sx={{
               position:'absolute',
               top:15,
@@ -30,7 +43,7 @@ export const  ProductItem: FC<Props>= ({data}) => {
             <Box className="chip" >
                 <Box  sx={{display:'flex'}}>
                   <ChipButton bg="rgb(15,23,42)" colorChip='white'  label="Add to Card" />
-                  <ChipButton   label="View Detail" variant="outlined" />
+                  <ChipButton  onClick={handleClick}  label="View Detail" variant="outlined" />
                 </Box>
             </Box>
         </BoxProItem>
@@ -66,7 +79,203 @@ export const  ProductItem: FC<Props>= ({data}) => {
           </Box>
         </Box>
       </Box>
+      <SimpleDialog
+        selectedValue={selectedValue}
+        open={open}
+        onClose={handleClose}
+      />
   </Grid>
   )
 }
 
+
+export interface SimpleDialogProps {
+  open: boolean;
+  selectedValue: string;
+  onClose: (value: string) => void;
+}
+
+const DataSize = ["XS","S","M","L","XL"]
+
+function SimpleDialog(props: SimpleDialogProps) {
+  const { onClose, selectedValue, open } = props;
+  const [typeColor,setTypeColor] = useState(false);
+  const [typeTypedex,setTypeIndex] = useState(0);
+  const  [size,setSize] = useState<any>({
+    index: 0,
+    value: "XS",
+    check: true
+  });
+  const handleClose = () => {
+    onClose(selectedValue);
+  };
+
+  // const handleListItemClick = (value: string) => {
+  //   onClose(value);
+  // };
+
+  const handleClickTypeColor =(index:number)=>{
+    if(typeColor === true && typeTypedex !== index){
+      setTypeColor(true)
+    }
+    setTypeIndex(index);
+    if(typeColor === false && typeTypedex === index){
+      setTypeColor(true)
+    }
+  }
+
+  const handleClickSize = (value: string , index: number)=>{
+   
+    if(size.check === true && size.index !== index){
+      size.check = true;
+      setSize({...size});
+    }
+    size.index = index
+    size.value = value;
+    setSize({...size});
+    if(size.check === false && size.index !== index){
+      size.check = true;
+      setSize({...size});
+    }
+  }
+
+  
+
+  return (
+    <Dialog onClose={handleClose} fullWidth={true}  maxWidth="lg"   open={open}>
+        <Grid container maxWidth="lg" sx={{
+          maxWidth:'100%',
+          height:"650px",
+          background:'white'
+        }}>
+          <Grid item sx={{
+             padding:'20px',
+          }} md={6}>
+            <Box sx={{
+               '&>img':{
+                width:'100%',
+                height:'400px',
+                marginBottom:'10px',
+                borderRadius:"10px"
+              }
+            }}>
+              <img src={Image.productDetail} alt={Image.productDetail}/>
+                <Box sx={{
+                  display:'flex',
+                  width:'100%', 
+                  '& img':{
+                    widht: "200px",
+                    height: "300px",
+                    borderRadius:"10px"
+                  },
+                  alignItems:'center',
+                  justifyContent:'space-between'
+                }}>
+                  <img src={Image.productDetail1} alt={Image.productDetail1}/>
+                  <img src={Image.productDetail2} alt={Image.productDetail2}/>
+                </Box>
+            </Box>
+          </Grid>
+          <Grid item sx={{
+             padding:'20px',
+          }} md={6}>
+              <Typography variant='h4'>Heavy Weight Shoes</Typography>
+              <Box sx={{
+                display:'flex',
+                alignItems:'center',
+                margin:'20px 0 30px 0',
+                fontSize:'20px'
+              }}>
+                <Box sx={{
+                  marginRight:'20px',
+                  color:'rgb(34,197,94)',
+                  padding:'5px  10px',
+                  fontFamily:'Roboto',
+                  fontWeight: 700,
+                  border:'2px solid rgb(34,197,94)',
+                  borderRadius:'5px'
+                }}>112$</Box>
+                |
+                <Box  sx={{
+                display:'flex',
+                alignItems:'center',
+                marginLeft:"20px",
+                marginRight:'20px ',
+                fontWeight: 700,
+                fontFamily:'Roboto'
+              }}>
+                  <StarIcon sx={{color:'yellow'}}/> 4.9 (142 reviews)
+                </Box>
+                <Box>
+                  New In
+                </Box>
+              </Box>
+
+              <Box>
+                <Typography sx={{fontWeight:500}}>Color :</Typography>
+                <Stack direction="row" sx={{
+                  margin:'10px 0',
+                }}   spacing={2}>
+                  {ImageColor.map((data,index)=>(
+                    <Box sx={{
+                      '& img':{
+                        width: "90px",
+                        height:'40px',
+                        borderRadius:'30px',
+                        border: typeColor=== true && typeTypedex === index? '2px solid blue': '',
+                        padding: '2px',
+                        '&:active':{
+                          border:'1px solid blue'
+                        }
+                      }
+                    }}> 
+                        <img onClick={()=>handleClickTypeColor(index)} src={data} key={index}/>
+                    </Box>
+                  ))}
+                </Stack>
+              </Box>
+
+              <Box sx={{margin:'20px 0'}}>
+                <Typography sx={{margin:'10px 0'}}>Size : {size.value}</Typography>
+                <Stack direction="row" spacing={2}>
+                  {
+                    DataSize.map((data,index)=>(
+                      <Box onClick={()=> handleClickSize(data,index)} key={index} sx={{
+                        padding:'10px',
+                        width:'30px',
+                        height:'20px',
+                        cursor:'pointer',
+                        display:'flex',
+                        alignItems:'center',
+                        justifyContent:'center',
+                        backgroundColor: size.index === index && size.check ===true ? 'blue': '',
+                        color: size.index === index && size.check ===true ? 'white': '',
+                        borderRadius:'15px',
+                        fontWeight:600,
+                        border: '2px solid blue'
+                      }}>
+                          {data}
+                      </Box>
+                    ))
+                  }
+                </Stack>
+              </Box>
+
+              <Box>
+                <Stack direction="row" spacing={2}>
+                    <Stack direction="row" spacing={2}>
+                      <Box>-</Box>
+                      <Box>1</Box>
+                      <Box>+</Box>
+                    </Stack>
+                    <Stack direction="row" spacing={2}>
+                      <Box>Add to Card</Box>
+                    </Stack>
+                </Stack>
+              </Box>
+          </Grid>
+
+        </Grid>
+    </Dialog>
+  );
+}

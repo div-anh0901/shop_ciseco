@@ -3,13 +3,19 @@ import { Box,
     Typography,
     Dialog,
     Stack,
-    Chip
+    Accordion,
+    Chip,
+    AccordionSummary,
+    AccordionDetails
   } from '@mui/material'
 import React, { useState ,FC,useEffect} from 'react'
 import FavoriteBorderOutlinedIcon from '@mui/icons-material/FavoriteBorderOutlined';
 import FavoriteIcon from '@mui/icons-material/Favorite';
+import RemoveIcon from '@mui/icons-material/Remove';
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import { ProductType } from '../utils/type';
 import { ProductTypeChoose } from './ProductType';
+import AddIcon from '@mui/icons-material/Add';
 import { BoxProItem, ChipButton } from '../custom-tag/productItem/BoxProItem';
 import StarIcon from '@mui/icons-material/Star';
 import { Image, ImageColor } from "../assets";
@@ -262,16 +268,84 @@ function SimpleDialog(props: SimpleDialogProps) {
               </Box>
 
               <Box>
-                <Stack direction="row" spacing={2}>
-                    <Stack direction="row" spacing={2}>
-                      <Box>-</Box>
+                <Stack direction="row"   spacing={2}>
+                    <Stack sx={{
+                        backgroundColor:'rgba(241,245,249,0.7)',
+                        padding: '15px 15px',
+                        fontSize:'30px',
+                        borderRadius:'20px'
+                      }} direction="row" alignItems="center" justifyContent="center" spacing={4}>
+                      <Box sx={{
+                        width:'30px',height: '30px',background:'white',
+                        display:'flex',
+                        alignItems:'center',
+                        justifyContent:'center',
+                        border:'1px solid black',
+                        borderRadius:'50%',
+                      }}><RemoveIcon/></Box>
                       <Box>1</Box>
-                      <Box>+</Box>
+                      <Box sx={{
+                        width:'30px',height: '30px',background:'white',display:'flex',
+                        alignItems:'center',
+                        justifyContent:'center',
+                        border:'1px solid black',
+                        borderRadius:'50%',
+                      }}><AddIcon/></Box>
                     </Stack>
-                    <Stack direction="row" spacing={2}>
-                      <Box>Add to Card</Box>
+                    <Stack direction="row" alignItems="center" justifyContent="center"  width="100%"  spacing={2}>
+                      <Box sx={{
+                        background:'black',
+                        width:'100%',
+                        height:'100%',
+                        display:'flex',
+                        alignItems:'center',
+                        borderRadius:'20px',
+                        justifyContent:'center',
+                        color:'white'
+                      }}>Add to Card</Box>
                     </Stack>
                 </Stack>
+              </Box>
+
+              <Box sx={{
+                margin:'20px 0'
+              }}>
+                <Accordion sx={{
+                  margin:'20px 0',  
+                  backgroundColor:'rgba(241,245,249,0.7)'
+                }}>
+                  <AccordionSummary
+                    expandIcon={<ExpandMoreIcon />}
+                    aria-controls="panel1a-content"
+                    id="panel1a-header"
+                  >
+                    <Typography>Description</Typography>
+                  </AccordionSummary>
+                  <AccordionDetails>
+                    <Typography>
+                      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
+                      malesuada lacus ex, sit amet blandit leo lobortis eget.
+                    </Typography>
+                  </AccordionDetails>
+                </Accordion>
+                <Accordion sx={{
+                  margin:'20px 0',  
+                  backgroundColor:'rgba(241,245,249,0.7)'
+                }}>
+                  <AccordionSummary
+                    expandIcon={<ExpandMoreIcon />}
+                    aria-controls="panel1a-content"
+                    id="panel1a-header"
+                  >
+                    <Typography>Feature</Typography>
+                  </AccordionSummary>
+                  <AccordionDetails>
+                    <Typography>
+                      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
+                      malesuada lacus ex, sit amet blandit leo lobortis eget.
+                    </Typography>
+                  </AccordionDetails>
+                </Accordion>
               </Box>
           </Grid>
 

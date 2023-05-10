@@ -8,3 +8,10 @@ export type ProductType={
     revirew: string,
     rating:string
 }
+
+export type Step ={
+    img: string;
+    step:string;
+    title: string;
+    des: string;
+}

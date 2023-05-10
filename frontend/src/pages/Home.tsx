@@ -5,6 +5,7 @@ import {useState}from 'react';
 import { Image } from '../assets'
 import { ProductData } from '../data'
 import {ProductItem} from '../components/ProductItem';
+import StepBuy from '../components/StepBuy';
 
 export default function Home() {
 
@@ -131,6 +132,10 @@ export default function Home() {
                     
                 </Grid>
               </Grid>
+          </Grid>
+          
+          <Grid sx={{margin:"30px 0"}}>
+            <StepBuy/>
           </Grid>
         </Container>
     </Grid>

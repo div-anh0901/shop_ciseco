@@ -3,7 +3,7 @@ import { Navbar } from '../components/Nabar'
 import { Banner } from '../components/Banner'
 import {useState}from 'react';
 import { Image } from '../assets'
-import { ProductData } from '../data'
+import { ProductData, StepData } from '../data'
 import {ProductItem} from '../components/ProductItem';
 import StepBuy from '../components/StepBuy';
 
@@ -133,9 +133,40 @@ export default function Home() {
                 </Grid>
               </Grid>
           </Grid>
-          
+
+          <Grid 
+            sx={{
+              height:'200px',
+              display:'flex',
+              alignItems:'center',
+              width:'100%',
+              '& div':{
+                height:'1px',
+                width:'100%',
+                backgroundColor:'#ccc'
+              }
+            }}
+          >
+            <div></div>
+          </Grid>
           <Grid sx={{margin:"30px 0"}}>
-            <StepBuy/>
+              <StepBuy  datas={StepData}/>
+          </Grid>
+
+          <Grid 
+            sx={{
+              height:'200px',
+              display:'flex',
+              alignItems:'center',
+              width:'100%',
+              '& div':{
+                height:'1px',
+                width:'100%',
+                backgroundColor:'#ccc'
+              }
+            }}
+          >
+            <div></div>
           </Grid>
         </Container>
     </Grid>

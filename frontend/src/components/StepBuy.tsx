@@ -12,7 +12,7 @@ const  StepBuy = ({datas}:Props)=> {
     <Box>
         <Grid container spacing={2}>
             {datas.map((data)=>(
-                <Grid md={3} item sx={{
+                <Grid key={data.img} md={3} item sx={{
                     display:'flex',
                     width:'100%'
                 }}>

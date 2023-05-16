@@ -6,6 +6,7 @@ import { Image } from '../assets'
 import { ProductData, StepData } from '../data'
 import {ProductItem} from '../components/ProductItem';
 import StepBuy from '../components/StepBuy';
+import ProductTranding from '../components/ProductTrending';
 
 export default function Home() {
 
@@ -168,6 +169,10 @@ export default function Home() {
           >
             <div></div>
           </Grid>
+            <Grid sx={{margin:"30px 0"}}>
+              <ProductTranding/>
+            </Grid>
+
         </Container>
     </Grid>
   )

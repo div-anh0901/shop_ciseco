@@ -44,6 +44,79 @@ export const ProductData:ProductType[] =[
     },
 ]
 
+export const ProductTrandingData:ProductType[] =[
+    {
+        id:1,
+        image: Image.proTran1,
+        name: 'Leather Gloves',
+        des:'Perfect mint green',
+        type:['red','black', 'blue','lawngreen', 'pink'],
+        price: '42',
+        revirew: '98',
+        rating:'4.9'
+    },
+    {
+        id:2,
+        image: Image.proTran2,
+        name: 'Manhattan Tou WRT',
+        des:'New design 2023',
+        type:['red','black', 'blue','lawngreen', 'pink'],
+        price: '30',
+        revirew: '98',
+        rating:'4.9'
+    },
+    {
+        id:3,
+        image: Image.proTran3,
+        name: 'Ella Leather Tote',
+        des:'Cream pink Tote',
+        type:['red','black', 'blue','lawngreen', 'pink'],
+        price: '145',
+        revirew: '98',
+        rating:'4.9'
+    },
+    {
+        id:4,
+        image: Image.proTran4,
+        name: 'Jums Rope Kids',
+        des:'Classic green',
+        type:['red','black', 'blue','lawngreen', 'pink'],
+        price: '68',
+        revirew: '98',
+        rating:'4.9'
+    },
+    {
+        id:5,
+        image: Image.proTran5,
+        name: 'Jums Rope Kids',
+        des:'Classic green',
+        type:['red','black', 'blue','lawngreen', 'pink'],
+        price: '68',
+        revirew: '98',
+        rating:'4.9'
+    },
+    {
+        id:6,
+        image: Image.proTran6,
+        name: 'Jums Rope Kids',
+        des:'Classic green',
+        type:['red','black', 'blue','lawngreen', 'pink'],
+        price: '68',
+        revirew: '98',
+        rating:'4.9'
+    },
+    {
+        id:7,
+        image: Image.proTran8,
+        name: 'Jums Rope Kids',
+        des:'Classic green',
+        type:['red','black', 'blue','lawngreen', 'pink'],
+        price: '68',
+        revirew: '98',
+        rating:'4.9'
+    },
+]
+
 export const StepData:  Step[]=[
     {
         img:Image.HIW1img,

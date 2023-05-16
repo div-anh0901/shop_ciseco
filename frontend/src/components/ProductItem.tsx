@@ -223,7 +223,7 @@ function SimpleDialog(props: SimpleDialogProps) {
                   margin:'10px 0',
                 }}   spacing={2}>
                   {ImageColor.map((data,index)=>(
-                    <Box sx={{
+                    <Box key={index} sx={{
                       '& img':{
                         width: "90px",
                         height:'40px',

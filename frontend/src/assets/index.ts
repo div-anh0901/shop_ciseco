@@ -18,6 +18,15 @@ import HIW1img from './banner/HIW1img.webp';
 import HIW2img from './banner/HIW2img.webp';
 import HIW3img from './banner/HIW3img.webp';
 import HIW4img from './banner/HIW4img.webp';
+import proTran1 from './productTranding/2.webp';
+import proTran2 from './productTranding/4.webp';
+import proTran3 from './productTranding/5.webp';
+import proTran4 from './productTranding/6.webp';
+import proTran5 from './productTranding/8.webp';
+import proTran6 from './productTranding/9.webp';
+import proTran7 from './productTranding/16.webp';
+import proTran8 from './productTranding/17.webp';
+
 
 export const Image = {
     shop_ao,
@@ -34,7 +43,15 @@ export const Image = {
     product_4,
     productDetail,
     productDetail1,
-    productDetail2
+    productDetail2,
+    proTran1,
+    proTran2,
+    proTran3,
+    proTran4,
+    proTran5,
+    proTran6,
+    proTran7,
+    proTran8
 }
 
 export const ImageColor =[
